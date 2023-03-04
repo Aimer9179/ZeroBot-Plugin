@@ -32,7 +32,7 @@ func init() { // 插件主体
 	engine := control.Register("saucenao", &ctrl.Options[*zero.Ctx]{
 		DisableOnDefault: false,
 		Brief:            "以图搜图",
-		Help: "- 以图搜图 | 搜索图片 | 以图识图[图片]\n" +
+		Help: "- 以图搜图 | 搜图 | 以图识图[图片]\n" +
 			"- 搜图[P站图片ID]",
 		PrivateDataFolder: "saucenao",
 	})
@@ -65,7 +65,7 @@ func init() { // 插件主体
 				name := strconv.FormatInt(illust.Pid, 10)
 				var imgs message.Message
 				for i := range illust.ImageUrls {
-					f := file.BOTPATH + "/" + illust.Path(i)
+					f := file.BOTPATH + "" + illust.Path(i)
 					n := name + "_p" + strconv.Itoa(i)
 					var m *pool.Image
 					if file.IsNotExist(f) {
